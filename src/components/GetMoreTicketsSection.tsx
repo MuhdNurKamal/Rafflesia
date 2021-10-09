@@ -6,7 +6,12 @@ export const GetMoreTicketsSection = () => {
     <div className="m-5 border flex flex-col">
       <div className="border-b">
         <span className="font-bold m-3">Get More Tickets</span>
-        <button className="bg-purple-sec text-white font-bold py-2 px-4 rounded ">
+        <button
+          className="bg-purple-sec text-white font-bold py-2 px-4 rounded "
+          onClick={() =>
+            window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank")
+          }
+        >
           Buy
         </button>
       </div>
