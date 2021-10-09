@@ -4,8 +4,12 @@ import { TicketType } from "../constants/TicketType";
 import silverTicket from "../images/SilverRaffleTicket.svg";
 import goldTicket from "../images/GoldRaffleTicket.svg";
 import diamondTicket from "../images/DiamondRaffleTicket.svg";
+import { useStore } from "../store";
 
 export const RaffleTicket = ({ ticketType }: { ticketType: TicketType }) => {
+  const ticketCounts = useStore((state) => state.ticketCounts);
+  const count = ticketCounts[ticketType];
+
   let image;
   if (ticketType === TicketType.GOLD) {
     image = goldTicket;
@@ -23,7 +27,10 @@ export const RaffleTicket = ({ ticketType }: { ticketType: TicketType }) => {
     item: { ticketType },
   }));
   return (
-    <>
+    <div>
+      <div className="text-white font-bold rounded-full h-6 w-6 flex items-center justify-center bg-purple-pri">
+        {count}
+      </div>
       <div
         className="m-5"
         ref={drag}
@@ -34,6 +41,6 @@ export const RaffleTicket = ({ ticketType }: { ticketType: TicketType }) => {
       >
         <img ref={drag} src={image} alt="raffle-ticket" />
       </div>
-    </>
+    </div>
   );
 };
