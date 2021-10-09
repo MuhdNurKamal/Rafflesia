@@ -3,14 +3,15 @@ import { TicketType } from "./constants/TicketType";
 
 interface StoreState {
   ticketCounts: Record<TicketType, number>;
+  useSingleTicket: (ticketType: TicketType) => void;
 }
 
 export const useStore = create<StoreState>((set, get) => ({
   // Hardcode since no API
   ticketCounts: {
-    [TicketType.SILVER]: 5,
-    [TicketType.GOLD]: 4,
-    [TicketType.DIAMOND]: 2,
+    [TicketType.SILVER]: 1,
+    [TicketType.GOLD]: 3,
+    [TicketType.DIAMOND]: 4,
   },
 
   useSingleTicket: (ticketType: TicketType) => {

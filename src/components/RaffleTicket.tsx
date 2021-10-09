@@ -21,6 +21,7 @@ export const RaffleTicket = ({ ticketType }: { ticketType: TicketType }) => {
 
   const [{ isDragging }, drag] = useDrag(() => ({
     type: Draggable.RAFFLE_TICKET,
+    canDrag: count > 0,
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
@@ -35,11 +36,11 @@ export const RaffleTicket = ({ ticketType }: { ticketType: TicketType }) => {
         className="m-5"
         ref={drag}
         style={{
-          cursor: "move",
-          opacity: isDragging ? 0.5 : 1,
+          cursor: count > 0 ? "move" : "auto",
+          opacity: isDragging || count < 1 ? 0.5 : 1,
         }}
       >
-        <img ref={drag} src={image} alt="raffle-ticket" />
+        <img src={image} alt="raffle-ticket" />
       </div>
     </div>
   );
