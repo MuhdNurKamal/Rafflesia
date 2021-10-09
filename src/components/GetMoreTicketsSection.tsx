@@ -1,3 +1,4 @@
+import { TicketType } from "../constants/TicketType";
 import { RaffleTicket } from "./RaffleTicket";
 
 export const GetMoreTicketsSection = () => {
@@ -10,9 +11,9 @@ export const GetMoreTicketsSection = () => {
         </button>
       </div>
       <div>
-        <RaffleTicket />
-        <RaffleTicket />
-        <RaffleTicket />
+        <RaffleTicket ticketType={TicketType.SILVER} />
+        <RaffleTicket ticketType={TicketType.GOLD} />
+        <RaffleTicket ticketType={TicketType.DIAMOND} />
       </div>
     </div>
   );
